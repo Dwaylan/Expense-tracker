@@ -2,28 +2,28 @@ import ExpenseItem from "./Components/ExpenseItem/ExpenseItem";
 
 function App() {
   const expenses = [
-    { title: "Phone", amount: 150, date: new Date(2021, 10, 15) },
-    { title: "Car Note", amount: 365, date: new Date(2021, 10, 22) },
-    { title: "Gym", amount: 55, date: (2021, 10, 29) },
+    { id: "e1", title: "Phone", amount: 150, date: new Date(2021, 10, 15) },
+    { id: "e2", title: "Car Note", amount: 365, date: new Date(2021, 10, 22) },
+    { id: "e3", title: "Gym", amount: 55, date: new Date(2021, 10, 28) },
   ];
   return (
     <div className="App">
       <h2>Let's get started!</h2>
-      <ExpenseItem>
+      <ExpenseItem
         title={expenses[0].title}
         amount={expenses[0].amount}
         date={expenses[0].date}
-      </ExpenseItem>
-      <ExpenseItem>
+      ></ExpenseItem>
+      <ExpenseItem
         title={expenses[1].title}
         amount={expenses[1].amount}
         date={expenses[1].date}
-      </ExpenseItem>
-      <ExpenseItem>
+      ></ExpenseItem>
+      <ExpenseItem
         title={expenses[2].title}
         amount={expenses[2].amount}
         date={expenses[2].date}
-      </ExpenseItem>
+      ></ExpenseItem>
     </div>
   );
 }
