@@ -7,11 +7,9 @@ import "../ExpenseItem/ExpenseItem.css";
 function ExpenseItem(props) {
   const [title, setTitle] = useState(props.title);
 
-  let title = props.title;
-
   const handleClick = () => {
-    console.log("updated");
-    title = "updated";
+    setTitle("updated");
+    console.log(title);
   };
   return (
     <Card className="expense-item">
