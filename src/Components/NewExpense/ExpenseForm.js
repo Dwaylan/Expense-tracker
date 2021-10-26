@@ -57,6 +57,7 @@ const ExpenseForm = () => {
           <label>Date</label>
           <input
             type="date"
+            value={enteredDate}
             min="2021-10-01"
             max="2022-12-31"
             onChange={dateChangeHaneHandler}
