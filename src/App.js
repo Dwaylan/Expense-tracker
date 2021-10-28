@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+
 import Expense from "./Components/Expense/Expense";
 import NewExpense from "./Components/NewExpense/NewExpense";
 
@@ -15,6 +17,8 @@ function App() {
   return (
     <div className="App">
       <NewExpense onAddExpense={addExpenseHandler} />
+      {/* The item property is passing in the expenses array to the 
+      expense component */}
       <Expense item={expenses}></Expense>
     </div>
   );

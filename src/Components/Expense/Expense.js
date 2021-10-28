@@ -4,6 +4,7 @@ import ExpenseItem from "../ExpenseItem/ExpenseItem";
 import Card from "../Card/Card";
 import "./Expense.css";
 import ExpensesFilter from "../ExpenseFilter/ExpenseFilter";
+
 function Expense(props) {
   // The initial state is set at 2021 until setFiltered year
   // is triggered and re-establishes the state
@@ -22,21 +23,18 @@ function Expense(props) {
           year={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
-        <ExpenseItem
-          title={props.item[0].title}
-          amount={props.item[0].amount}
-          date={props.item[0].date}
-        />
-        <ExpenseItem
-          title={props.item[1].title}
-          amount={props.item[1].amount}
-          date={props.item[1].date}
-        />
-        <ExpenseItem
-          title={props.item[2].title}
-          amount={props.item[2].amount}
-          date={props.item[2].date}
-        />
+        {/* Accessing the items from the array of objects and mapping them to 
+          the ExpenseItem component. This transforms the expense objects into
+          a JSX element*/}
+
+        {/* expense is passed as a parameter which we call to extract object keys */}
+        {props.item.map((expense) => (
+          <ExpenseItem
+            title={expense.title}
+            amount={expense.amount}
+            date={expense.date}
+          />
+        ))}
       </Card>
     </div>
   );
