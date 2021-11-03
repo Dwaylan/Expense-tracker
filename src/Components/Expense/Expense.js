@@ -23,6 +23,22 @@ function Expense(props) {
     return expense.date.getFullYear().toString() === filteredYear;
   });
 
+  let expensesContent = <p>No item(s)found</p>;
+
+  // If the the filtered expenses returned is greater than "0" the expenses content variable
+  // will map the array of items accordingly
+  if (filteredExpenses.length > 0) {
+    expensesContent = filteredExpenses.map((expense) => (
+      <ExpenseItem
+        // Adding unique IDs to objects in order to uniquely identify the items
+        key={expense.id}
+        title={expense.title}
+        amount={expense.amount}
+        date={expense.date}
+      />
+    ));
+  }
+
   return (
     <div>
       <Card className="expense">
@@ -31,20 +47,7 @@ function Expense(props) {
           year={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
-        {/* Accessing the items from the array of objects and mapping them to 
-          the ExpenseItem component. This transforms the expense objects into
-          a JSX element*/}
-
-        {/* filteredExpense is passed as a parameter which we call to extract and map an array of objects */}
-        {filteredExpenses.map((expense) => (
-          <ExpenseItem
-            // Adding unique IDs to objects in order to uniquely identify the items
-            key={expense.id}
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
-          />
-        ))}
+        {expensesContent}
       </Card>
     </div>
   );
