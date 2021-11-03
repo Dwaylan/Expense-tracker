@@ -69,6 +69,13 @@ const ExpenseForm = (props) => {
         <button type="submit" onSubmit={submitHandler}>
           Add expense
         </button>
+        <button
+          type="button"
+          // Passed the on cancel property from NewExpense.js
+          onClick={props.onCancel}
+        >
+          Cancel
+        </button>
       </div>
     </form>
   );
