@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-import ExpenseItem from "../ExpenseItem/ExpenseItem";
 import Card from "../Card/Card";
 import "./Expense.css";
 import ExpensesFilter from "../ExpenseFilter/ExpenseFilter";
+import ExpenseList from "../ExpenseList/ExpenseList";
 
 function Expense(props) {
   // The initial state is set at 2021 until setFiltered year
@@ -23,22 +23,6 @@ function Expense(props) {
     return expense.date.getFullYear().toString() === filteredYear;
   });
 
-  let expensesContent = <p>No item(s) found</p>;
-
-  // If the the filtered expenses returned is greater than "0" the expenses content variable
-  // will map the array of items accordingly
-  if (filteredExpenses.length > 0) {
-    expensesContent = filteredExpenses.map((expense) => (
-      <ExpenseItem
-        // Adding unique IDs to objects in order to uniquely identify the items
-        key={expense.id}
-        title={expense.title}
-        amount={expense.amount}
-        date={expense.date}
-      />
-    ));
-  }
-
   return (
     <div>
       <Card className="expense">
@@ -47,7 +31,7 @@ function Expense(props) {
           year={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
-        {expensesContent}
+        <ExpenseList item={filteredExpenses} />
       </Card>
     </div>
   );
