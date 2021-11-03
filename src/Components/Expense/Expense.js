@@ -15,6 +15,14 @@ function Expense(props) {
     // setting the filtered year to the new selected year on change
     setFilteredYear(selectedYear);
   };
+
+  // The filteredExpenses function gathers all items as a property and uses the filter
+  // method. Passes the expense array as an object to be filtered through and returns
+  // a new array of object based off of the filtered year
+  const filteredExpenses = props.item.filter((expense) => {
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
+
   return (
     <div>
       <Card className="expense">
@@ -27,9 +35,11 @@ function Expense(props) {
           the ExpenseItem component. This transforms the expense objects into
           a JSX element*/}
 
-        {/* expense is passed as a parameter which we call to extract object keys */}
-        {props.item.map((expense) => (
+        {/* filteredExpense is passed as a parameter which we call to extract and map an array of objects */}
+        {filteredExpenses.map((expense) => (
           <ExpenseItem
+            // Adding unique IDs to objects in order to uniquely identify the items
+            key={expense.id}
             title={expense.title}
             amount={expense.amount}
             date={expense.date}
