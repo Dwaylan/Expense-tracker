@@ -23,7 +23,7 @@ function Expense(props) {
     return expense.date.getFullYear().toString() === filteredYear;
   });
 
-  let expensesContent = <p>No item(s)found</p>;
+  let expensesContent = <p>No item(s) found</p>;
 
   // If the the filtered expenses returned is greater than "0" the expenses content variable
   // will map the array of items accordingly
