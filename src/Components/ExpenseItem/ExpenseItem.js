@@ -20,7 +20,7 @@ function ExpenseItem(props) {
         <div className="expense-item__price">
           <h2>${props.amount}</h2>
         </div>
-        <div>
+        <div className="expense-item__delete">
           {/* onClick={deleteHandler} */}
           <button>Delete</button>
         </div>
