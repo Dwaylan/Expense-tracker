@@ -7,6 +7,9 @@ import "../ExpenseItem/ExpenseItem.css";
 // The expense item function is receiving the properties from the app.js expenses object
 // and the array of objects within that object
 function ExpenseItem(props) {
+  // const deleteHandler = () => {
+  //   props.onDelete(props.id);
+  // };
   return (
     <li>
       <Card className="expense-item">
@@ -16,6 +19,10 @@ function ExpenseItem(props) {
         </div>
         <div className="expense-item__price">
           <h2>${props.amount}</h2>
+        </div>
+        <div>
+          {/* onClick={deleteHandler} */}
+          <button>Delete</button>
         </div>
       </Card>
     </li>

@@ -23,12 +23,8 @@ function App() {
     setExpenses((prevExpenses) => {
       return [expense, ...prevExpenses];
     });
-
-  const deleteExpenseHandler = (expense) =>{
-    console.log('delete was clicked')
-    setExpenses(())
-  }
   };
+
   return (
     <div className="App">
       <NewExpense onAddExpense={addExpenseHandler} />
