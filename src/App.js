@@ -18,9 +18,16 @@ function App() {
 
   const addExpenseHandler = (expense) => {
     console.log("in app.js");
+
+    // Take the expenses state and returns a new expense to the original array
     setExpenses((prevExpenses) => {
       return [expense, ...prevExpenses];
     });
+
+  const deleteExpenseHandler = (expense) =>{
+    console.log('delete was clicked')
+    setExpenses(())
+  }
   };
   return (
     <div className="App">
